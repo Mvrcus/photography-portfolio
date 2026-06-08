@@ -35,18 +35,28 @@
 .prose-guide p,
 .prose-guide li {
   line-height: 1.75;
-  color: rgb(64 64 64);
+  color: rgb(55 65 81);
 }
 
-.dark .prose-guide p,
-.dark .prose-guide li {
-  color: rgb(212 212 212);
+@media (prefers-color-scheme: dark) {
+  .prose-guide p,
+  .prose-guide li {
+    color: rgb(209 213 219);
+  }
+
+  .prose-guide strong {
+    color: rgb(255 255 255);
+  }
+
+  .prose-guide a {
+    color: rgb(255 255 255);
+  }
 }
 
 .prose-guide ul,
 .prose-guide ol {
-  margin-left: 1.25rem;
   margin-bottom: 1rem;
+  padding-left: 1.25rem;
 }
 
 .prose-guide ul {
@@ -59,6 +69,96 @@
 
 .prose-guide a {
   text-decoration: underline;
+}
+
+.content-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid rgb(229 231 235);
+}
+
+@media (prefers-color-scheme: dark) {
+  .content-section {
+    border-color: rgb(38 38 38);
+  }
+}
+
+.content-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.content-list {
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .content-list {
+    border-color: rgb(38 38 38);
+  }
+}
+
+.content-list li {
+  padding: 0.875rem 1rem;
+  line-height: 1.6;
+  color: rgb(55 65 81);
+}
+
+.content-list li + li {
+  border-top: 1px solid rgb(229 231 235);
+}
+
+@media (prefers-color-scheme: dark) {
+  .content-list li {
+    color: rgb(209 213 219);
+  }
+
+  .content-list li + li {
+    border-color: rgb(38 38 38);
+  }
+
+  .content-list a {
+    color: rgb(255 255 255);
+  }
+}
+
+.feature-card {
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(249 250 251);
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature-card {
+    border-color: rgb(38 38 38);
+    background-color: rgb(23 23 23);
+  }
+}
+
+.feature-card-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: rgb(0 0 0);
+}
+
+.feature-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgb(75 85 99);
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature-card-title {
+    color: rgb(255 255 255);
+  }
+
+  .feature-card-desc {
+    color: rgb(156 163 175);
+  }
 }
 
 /* Responsive image max-heights */
@@ -242,16 +342,18 @@
   transition: border-color 0.2s ease;
 }
 
-.dark .guide-card {
-  border-color: rgb(38 38 38);
+@media (prefers-color-scheme: dark) {
+  .guide-card {
+    border-color: rgb(38 38 38);
+  }
+
+  .guide-card:hover {
+    border-color: rgb(255 255 255);
+  }
 }
 
 .guide-card:hover {
   border-color: rgb(0 0 0);
-}
-
-.dark .guide-card:hover {
-  border-color: rgb(255 255 255);
 }
 
 @media (min-width: 768px) {
