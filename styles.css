@@ -233,3 +233,29 @@
     max-height: 460px;
   }
 }
+
+.guide-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.dark .guide-card {
+  border-color: rgb(38 38 38);
+}
+
+.guide-card:hover {
+  border-color: rgb(0 0 0);
+}
+
+.dark .guide-card:hover {
+  border-color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+  .guide-card {
+    padding: 1.5rem;
+  }
+}
