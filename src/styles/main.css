@@ -1,3 +1,96 @@
+@import "@fontsource/signika/latin-400.css";
+@import "@fontsource/signika/latin-700.css";
+@import "tailwindcss";
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+@theme {
+  --font-signika: "Signika", ui-sans-serif, system-ui, sans-serif;
+  --font-nothingyoucoulddo: "Nothing You Could Do", cursive;
+}
+
+@layer utilities {
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .smooth-edges {
+    -webkit-backface-visibility: hidden;
+  }
+
+  .animate-wave {
+    animation-name: wave;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.menu-bar {
+  @apply block absolute h-0.5 w-5 bg-current transition duration-500 ease-in-out left-0;
+}
+
+.menu-bar-top {
+  top: -6px;
+}
+
+.menu-bar-mid {
+  top: 0;
+}
+
+.menu-bar-bot {
+  top: 6px;
+}
+
+#menu-btn.is-open .menu-bar-top {
+  transform: rotate(45deg) translateY(6px);
+}
+
+#menu-btn.is-open .menu-bar-mid {
+  opacity: 0;
+}
+
+#menu-btn.is-open .menu-bar-bot {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
 .tap-highlight-transparent {
   -webkit-tap-highlight-color: transparent;
 }
@@ -6,15 +99,22 @@
   border-radius: 0.25rem;
 }
 
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(20deg); }
-  75% { transform: rotate(-10deg); }
+@keyframes wave-alt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
 }
 
 .animate-wave {
   display: inline-block;
-  animation: wave 2s ease-in-out infinite;
+  animation: wave-alt 2s ease-in-out infinite;
   transform-origin: 70% 70%;
 }
 
@@ -160,8 +260,6 @@
     color: rgb(156 163 175);
   }
 }
-
-/* Responsive image max-heights */
 
 .img-hero {
   display: block;
@@ -354,6 +452,30 @@
 
 .guide-card:hover {
   border-color: rgb(0 0 0);
+}
+
+.area-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.area-list li {
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.5rem;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(75 85 99);
+  background-color: rgb(249 250 251);
+}
+
+@media (prefers-color-scheme: dark) {
+  .area-list li {
+    border-color: rgb(38 38 38);
+    color: rgb(156 163 175);
+    background-color: rgb(23 23 23);
+  }
 }
 
 @media (min-width: 768px) {

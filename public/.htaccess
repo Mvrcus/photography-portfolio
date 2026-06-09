@@ -1,0 +1,24 @@
+# Clean URLs: hide .html extensions (Apache on Plesk)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Guides index (directory index is not always configured)
+  RewriteRule ^guides/?$ guides/index.html [L]
+
+  # Skip rewrite for existing files and directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Redirect /page.html → /page (and /guides/index.html → /guides)
+  RewriteCond %{THE_REQUEST} \s([^\s?]*?)index\.html[\s?] [NC]
+  RewriteRule ^ %1 [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s([^\s?]*?)\.html[\s?] [NC]
+  RewriteRule ^ %1 [R=301,L,NE]
+
+  # Serve /page as /page.html internally
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>

@@ -7,39 +7,33 @@
   <title>Senior Photo Guides | Holland MI Photography Tips | Zuri Visuals</title>
   <meta name="description"
     content="Free senior portrait guides for Holland and West Michigan: best photo locations, outfit ideas, booking timelines, and pricing FAQs for high school graduation photos." />
-  <link rel="canonical" href="https://zuri-visuals.com/guides/index.html" />
+  <link rel="canonical" href="https://zuri-visuals.com/guides" />
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-  <link rel="stylesheet" href="../css/output.css" />
-  <link rel="stylesheet" href="../styles.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: { signika: ['Signika', 'sans-serif'] } } } }
-  </script>
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <script type="module" src="/src/js/main.js"></script>
 </head>
 
-<body class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
+<body class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20">
   <header class="flex w-full overflow-hidden pt-10 pb-1">
-    <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
+    <nav id="nav" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center">
-        <div class="mr-4 md:mr-8"><a href="../index.html" class="text-2xl font-signika font-bold">ZURI VISUALS</a></div>
+        <div class="mr-4 md:mr-8"><a href="/" class="text-2xl font-signika font-bold">ZURI VISUALS</a></div>
         <div class="ml-auto md:hidden">
-          <button onclick="menuToggle()" @click="open = !open" class="tap-highlight-transparent w-5 h-5 relative"><span class="sr-only">Menu</span>
+          <button id="menu-btn" type="button" class="tap-highlight-transparent w-5 h-5 relative" aria-expanded="false" aria-controls="menu"><span class="sr-only">Menu</span>
             <div class="block w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'opacity-0': open }"></span>
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-top"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-mid"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-bot"></span>
             </div>
           </button>
         </div>
         <div id="menu" class="w-full h-0 md:h-auto md:w-auto md:flex-grow md:flex md:items-center transition-all duration-500 md:transition-none">
           <ul id="ulMenu" class="flex flex-col md:flex-row md:ml-auto md:space-x-5 mt-5 md:mt-0">
-            <li class="group"><a href="../index.html" class="font-signika text-2xl">PORTFOLIO<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="../senior-portraits.html" class="font-signika text-2xl">SENIOR PORTRAITS<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="index.html" class="font-signika text-2xl">GUIDES<span class="hidden md:block h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="../about_me.html" class="font-signika text-2xl">ABOUT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="../contact.html" class="font-signika text-2xl">CONTACT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/" class="font-signika text-2xl">PORTFOLIO<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/senior-portraits" class="font-signika text-2xl">SENIOR PORTRAITS<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/guides" class="font-signika text-2xl">GUIDES<span class="hidden md:block h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/about_me" class="font-signika text-2xl">ABOUT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/contact" class="font-signika text-2xl">CONTACT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
           </ul>
         </div>
       </div>
@@ -55,27 +49,27 @@
     </div>
 
     <div class="grid sm:grid-cols-2 gap-4 md:gap-5 pb-12 md:pb-16">
-      <a href="best-senior-photo-locations-west-michigan.html" class="guide-card group">
+      <a href="/guides/best-senior-photo-locations-west-michigan" class="guide-card group">
         <h2 class="text-lg font-bold mb-2 group-hover:underline">Best senior photo locations in West Michigan</h2>
         <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Holland State Park, Tunnel Park, downtown Holland, Saugatuck dunes, Grand Haven pier, and quieter Lake Michigan spots.</p>
       </a>
-      <a href="what-to-wear-senior-pictures.html" class="guide-card group">
+      <a href="/guides/what-to-wear-senior-pictures" class="guide-card group">
         <h2 class="text-lg font-bold mb-2 group-hover:underline">What to wear for senior pictures</h2>
         <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">How many outfits to bring, colors for beach vs. downtown, and a few things to leave at home.</p>
       </a>
-      <a href="when-to-book-senior-photos-michigan.html" class="guide-card group">
+      <a href="/guides/when-to-book-senior-photos-michigan" class="guide-card group">
         <h2 class="text-lg font-bold mb-2 group-hover:underline">When to book senior photos in Michigan</h2>
         <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Junior spring through senior fall, with notes on yearbook deadlines and peak summer availability.</p>
       </a>
-      <a href="how-much-do-senior-pictures-cost.html" class="guide-card group">
+      <a href="/guides/how-much-do-senior-pictures-cost" class="guide-card group">
         <h2 class="text-lg font-bold mb-2 group-hover:underline">How much do senior pictures cost?</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Typical West Michigan price ranges, what drives the total, and how to compare photographers.</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">General West Michigan price ranges (not our rates), what drives the total, and questions to ask any photographer.</p>
       </a>
     </div>
 
     <p class="pb-16 text-gray-700 dark:text-gray-300">
-      Want to book? See <a href="../senior-portraits.html" class="underline">senior portrait packages</a> or
-      <a href="../contact.html" class="underline">send a message</a>.
+      Want to book? See <a href="/senior-portraits" class="underline">senior portrait packages</a> or
+      <a href="/contact" class="underline">send a message</a>.
     </p>
   </main>
 
@@ -86,8 +80,6 @@
       <p class="mt-8 text-xs text-gray-600 dark:text-gray-300">© 2026 Zuri Visuals</p>
     </div>
   </footer>
-  <script src="../js/fade_in.js"></script>
-  <script src="../js/menu.js"></script>
 </body>
 
 </html>

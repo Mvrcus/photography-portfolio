@@ -21,28 +21,8 @@
   <meta name="geo.region" content="US-MI" />
   <meta name="geo.placename" content="Holland" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="css/output.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      content: ["./*.html", "./guides/*.html", "./js/*.js"],
-      theme: {
-        extend: {
-          fontFamily: {
-            signika: ['Signika', 'sans-serif'],
-          },
-        },
-      },
-      plugins: [],
-    }
-  </script>
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <script type="module" src="/src/js/main.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,28 +51,22 @@
 </head>
 
 <body
-  class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
+  class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20">
   <header class="flex w-full overflow-hidden pt-10 pb-1">
-    <nav id="nav" x-data="{ open: false }" role="navigation" aria-label="Main navigation" class="w-full">
+    <nav id="nav" role="navigation" aria-label="Main navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
         <div class="mr-4 md:mr-8">
-          <a href="index.html" class="text-2xl font-signika font-bold">ZURI VISUALS</a>
+          <a href="/" class="text-2xl font-signika font-bold">ZURI VISUALS</a>
         </div>
         <div class="ml-auto md:hidden flex items-center justify-start">
-          <button onclick="menuToggle()" @click="open = !open"
+          <button id="menu-btn" type="button"
             class="tap-highlight-transparent text-black dark:text-white w-5 h-5 relative focus:outline-none"
             aria-expanded="false" aria-controls="menu">
             <span class="sr-only">Open main menu</span>
             <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <span aria-hidden="true"
-                class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
-              <span aria-hidden="true"
-                class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                :class="{'opacity-0': open }"></span>
-              <span aria-hidden="true"
-                class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-top"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-mid"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-bot"></span>
             </div>
           </button>
         </div>
@@ -101,30 +75,30 @@
           <ul id="ulMenu"
             class="flex flex-col duration-300 ease-out md:space-x-5 sm:transition-none mt-5 md:flex-row md:items-center md:ml-auto md:mt-0 md:pt-0 md:border-0">
             <li class="group transition duration-300">
-              <a href="index.html" class="font-signika text-2xl tap-highlight-transparent">PORTFOLIO
+              <a href="/" class="font-signika text-2xl tap-highlight-transparent">PORTFOLIO
                 <span class="hidden md:block h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="senior-portraits.html" class="font-signika text-2xl tap-highlight-transparent">SENIOR PORTRAITS
+              <a href="/senior-portraits" class="font-signika text-2xl tap-highlight-transparent">SENIOR PORTRAITS
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="guides/index.html" class="font-signika text-2xl tap-highlight-transparent">GUIDES
+              <a href="/guides" class="font-signika text-2xl tap-highlight-transparent">GUIDES
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="about_me.html" class="font-signika text-2xl tap-highlight-transparent">ABOUT
+              <a href="/about_me" class="font-signika text-2xl tap-highlight-transparent">ABOUT
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="contact.html" class="font-signika text-2xl tap-highlight-transparent">CONTACT
+              <a href="/contact" class="font-signika text-2xl tap-highlight-transparent">CONTACT
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
@@ -145,14 +119,14 @@
           </h1>
           <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-xl">
             Senior pictures for Holland, Zeeland, Grand Haven, and West Michigan. Class of 2026 and beyond.
-            Lake Michigan sunsets, downtown brick, dunes, and sessions that actually feel like you.
+            Lake Michigan sunsets, downtown brick, dunes, and sessions that feel like you.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="contact.html"
+            <a href="/contact"
               class="inline-block py-3 px-6 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition">
               Book senior photos
             </a>
-            <a href="senior-portraits.html"
+            <a href="/senior-portraits"
               class="inline-block py-3 px-6 border border-black dark:border-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900 transition">
               View packages
             </a>
@@ -173,7 +147,7 @@
         cap-and-gown options, and sessions for yearbook, announcements, Instagram, and your family wall.
         I know the local light, beaches, and school deadlines.
       </p>
-      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm text-gray-600 dark:text-gray-400">
+      <ul class="area-list grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <li>Holland &amp; West Ottawa high schools</li>
         <li>Zeeland East &amp; West senior sessions</li>
         <li>Grand Haven &amp; Spring Lake beaches</li>
@@ -186,7 +160,7 @@
     <section class="py-10">
       <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
         <h2 class="text-3xl font-bold font-signika">Portfolio</h2>
-        <a href="guides/index.html" class="text-sm underline text-gray-600 dark:text-gray-400">Guides &amp; tips</a>
+        <a href="/guides" class="text-sm underline text-gray-600 dark:text-gray-400">Guides &amp; tips</a>
       </div>
       <div class="flex flex-wrap w-full portfolio-grid">
         <div class="flex w-full md:w-1/2 flex-wrap">
@@ -194,7 +168,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_2479.jpg" data-fancybox="gallery">
                 <img alt="High school senior portrait with urban night lighting Holland Michigan area photographer"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_2479.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -202,8 +176,8 @@
           <div class="w-full md:w-1/2 p-1">
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/C349C7DA-A0D1-4CB6-8A80-AFB67AC6C893.jpg" data-fancybox="gallery">
-                <img alt="Dramatic Lake Michigan sunset beach landscape for West Michigan senior photo locations"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                <img alt="Lake Michigan sunset beach, West Michigan senior photo location"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/C349C7DA-A0D1-4CB6-8A80-AFB67AC6C893.jpg" loading="lazy" width="600" height="400" />
               </a>
             </div>
@@ -212,7 +186,7 @@
             <div class="portfolio-item portfolio-item--wide overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_3781.jpg" data-fancybox="gallery">
                 <img alt="Outdoor portrait on Lake Michigan rocks West Michigan beach photography"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_3781.jpg" loading="lazy" width="1200" height="800" />
               </a>
             </div>
@@ -223,7 +197,7 @@
             <div class="portfolio-item portfolio-item--wide overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_0457.jpg" data-fancybox="gallery">
                 <img alt="Natural light outdoor lifestyle portrait West Michigan photographer"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_0457.jpg" loading="lazy" width="800" height="600" />
               </a>
             </div>
@@ -232,7 +206,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_1515.jpg" data-fancybox="gallery">
                 <img alt="Creative outdoor senior-style portrait session natural light"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_1515.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -241,7 +215,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_1738.jpg" data-fancybox="gallery">
                 <img alt="Lifestyle portrait with dog outdoor West Michigan senior session with pets"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_1738.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -252,7 +226,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_3780.jpg" data-fancybox="gallery">
                 <img alt="Lake Michigan waterfront portrait Holland area beach session"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_3780.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -261,7 +235,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_1340.jpg" data-fancybox="gallery">
                 <img alt="Outdoor portrait natural light West Michigan graduation photography"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_1340.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -270,7 +244,7 @@
             <div class="portfolio-item portfolio-item--wide overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_1172.jpg" data-fancybox="gallery">
                 <img alt="Senior portrait style outdoor session Michigan photographer portfolio"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_1172.jpg" loading="lazy" width="1200" height="800" />
               </a>
             </div>
@@ -281,7 +255,7 @@
             <div class="portfolio-item portfolio-item--wide overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_3969.jpg" data-fancybox="gallery">
                 <img alt="Creative portrait photography West Michigan high school senior pictures"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_3969.jpg" loading="lazy" width="800" height="600" />
               </a>
             </div>
@@ -290,7 +264,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_6432.jpg" data-fancybox="gallery">
                 <img alt="Pet portrait outdoor lifestyle Holland Michigan photographer"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_6432.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -299,7 +273,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_3975.jpg" data-fancybox="gallery">
                 <img alt="Outdoor graduation portrait session West Michigan natural light"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_3975.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -308,7 +282,7 @@
             <div class="portfolio-item overflow-hidden h-full w-full">
               <a href="assets/portfolio/IMG_5658.jpg" data-fancybox="gallery">
                 <img alt="Lifestyle portrait West Michigan senior photography portfolio"
-                  class="opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110"
+                  class="animate-fade-in transform scale-100 hover:scale-110 transition duration-500"
                   src="assets/portfolio/IMG_5658.jpg" loading="lazy" width="600" height="800" />
               </a>
             </div>
@@ -325,21 +299,21 @@
         </p>
       </div>
       <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
-        <a href="guides/best-senior-photo-locations-west-michigan.html" class="guide-card group">
+        <a href="/guides/best-senior-photo-locations-west-michigan" class="guide-card group">
           <h3 class="font-bold text-lg mb-2 group-hover:underline">Best senior photo locations in West Michigan</h3>
           <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Holland State Park, Tunnel Park, downtown Holland, dunes, and quieter Lake Michigan spots.</p>
         </a>
-        <a href="guides/what-to-wear-senior-pictures.html" class="guide-card group">
+        <a href="/guides/what-to-wear-senior-pictures" class="guide-card group">
           <h3 class="font-bold text-lg mb-2 group-hover:underline">What to wear for senior pictures</h3>
           <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">How many outfits to bring, colors that work on the beach or downtown, and a few things to skip.</p>
         </a>
-        <a href="guides/when-to-book-senior-photos-michigan.html" class="guide-card group">
+        <a href="/guides/when-to-book-senior-photos-michigan" class="guide-card group">
           <h3 class="font-bold text-lg mb-2 group-hover:underline">When to book senior photos in Michigan</h3>
           <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Junior spring through senior fall, plus yearbook and announcement deadlines for class of 2026.</p>
         </a>
-        <a href="guides/how-much-do-senior-pictures-cost.html" class="guide-card group">
+        <a href="/guides/how-much-do-senior-pictures-cost" class="guide-card group">
           <h3 class="font-bold text-lg mb-2 group-hover:underline">How much do senior pictures cost?</h3>
-          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Typical West Michigan price ranges, what changes the total, and questions worth asking upfront.</p>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">General West Michigan price ranges (not our rates), what changes the total, and questions to ask any photographer.</p>
         </a>
       </div>
     </section>
@@ -352,7 +326,7 @@
           <p class="font-signika"><b>ZURI VISUALS</b></p>
           <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
             Holland, Michigan · West Michigan senior &amp; graduation photography<br />
-            <a href="contact.html" class="underline">Book a session</a>
+            <a href="/contact" class="underline">Book a session</a>
           </p>
         </div>
       </div>
@@ -361,12 +335,6 @@
       </p>
     </div>
   </footer>
-
-  <script>
-    Fancybox.bind("[data-fancybox]", {});
-  </script>
-  <script src="js/fade_in.js"></script>
-  <script src="js/menu.js"></script>
 </body>
 
 </html>

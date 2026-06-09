@@ -7,41 +7,34 @@
   <title>About Zuri Visuals | Senior Photographer Holland MI</title>
   <meta name="description"
     content="Meet Zuri Visuals, a West Michigan photographer who shoots high school senior portraits, graduation photos, and outdoor lifestyle sessions in Holland, Zeeland, and along Lake Michigan." />
-  <link rel="canonical" href="https://zuri-visuals.com/about_me.html" />
+  <link rel="canonical" href="https://zuri-visuals.com/about_me" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="css/output.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: { signika: ['Signika', 'sans-serif'], nothingyoucoulddo: ['Nothing You Could Do', 'cursive'] } } } }
-  </script>
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <script type="module" src="/src/js/main.js"></script>
 </head>
 
-<body class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
+<body class="dark:bg-black bg-white min-h-screen text-black dark:text-white px-5 md:px-20">
   <header class="flex w-full overflow-hidden pt-10 pb-1">
-    <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
+    <nav id="nav" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center">
-        <div class="mr-4 md:mr-8"><a href="index.html" class="text-2xl font-signika font-bold">ZURI VISUALS</a></div>
+        <div class="mr-4 md:mr-8"><a href="/" class="text-2xl font-signika font-bold">ZURI VISUALS</a></div>
         <div class="ml-auto md:hidden">
-          <button onclick="menuToggle()" @click="open = !open" class="tap-highlight-transparent w-5 h-5 relative">
+          <button id="menu-btn" type="button" class="tap-highlight-transparent w-5 h-5 relative" aria-expanded="false" aria-controls="menu">
             <span class="sr-only">Open menu</span>
             <div class="block w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'opacity-0': open }"></span>
-              <span class="block absolute h-0.5 w-5 bg-current transition duration-500" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-top"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-mid"></span>
+              <span aria-hidden="true" class="menu-bar menu-bar-bot"></span>
             </div>
           </button>
         </div>
         <div id="menu" class="w-full h-0 md:h-auto md:w-auto md:flex-grow md:flex md:items-center transition-all duration-500 md:transition-none">
           <ul id="ulMenu" class="flex flex-col md:flex-row md:ml-auto md:space-x-5 mt-5 md:mt-0">
-            <li class="group"><a href="index.html" class="font-signika text-2xl">PORTFOLIO<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="senior-portraits.html" class="font-signika text-2xl">SENIOR PORTRAITS<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="guides/index.html" class="font-signika text-2xl">GUIDES<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="about_me.html" class="font-signika text-2xl">ABOUT<span class="hidden md:block h-0.5 bg-black dark:bg-white"></span></a></li>
-            <li class="group"><a href="contact.html" class="font-signika text-2xl">CONTACT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/" class="font-signika text-2xl">PORTFOLIO<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/senior-portraits" class="font-signika text-2xl">SENIOR PORTRAITS<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/guides" class="font-signika text-2xl">GUIDES<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/about_me" class="font-signika text-2xl">ABOUT<span class="hidden md:block h-0.5 bg-black dark:bg-white"></span></a></li>
+            <li class="group"><a href="/contact" class="font-signika text-2xl">CONTACT<span class="hidden md:block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-black dark:bg-white"></span></a></li>
           </ul>
         </div>
       </div>
@@ -66,20 +59,20 @@
         <p class="mb-4">
           I shoot high school seniors and graduation portraits across Holland, Zeeland, Grand Haven,
           and the West Michigan lakeshore. Natural light, real personality, and locations you
-          actually care about, Lake Michigan beaches, downtown brick, dunes, and the hobbies that define your senior year.
+          care about: Lake Michigan beaches, downtown brick, dunes, and the hobbies that define your senior year.
         </p>
         <p class="mb-4">
           Beyond senior work, I also photograph outdoor lifestyle, pets, and milestone portraits with the same
-          approach, guided but never stiff, with room for laughter, movement, and the real stuff of being seventeen
+          approach: some direction, nothing stiff, with room for laughter, movement, and the real stuff of being seventeen
           or eighteen on the lakeshore.
         </p>
         <p class="mb-4">
           New to senior photos? Read the
-          <a href="guides/index.html" class="underline">senior picture guides</a> on locations, outfits, timing, and pricing, or
-          jump straight to <a href="senior-portraits.html" class="underline">session details</a>.
+          <a href="/guides" class="underline">senior picture guides</a> on locations, outfits, timing, and pricing, or
+          jump straight to <a href="/senior-portraits" class="underline">session details</a>.
         </p>
         <p>
-          <a href="contact.html" class="underline font-medium">Send a message</a> to check class of 2026 availability.
+          <a href="/contact" class="underline font-medium">Send a message</a> to check class of 2026 availability.
         </p>
       </section>
     </div>
@@ -92,8 +85,6 @@
       <p class="mt-8 text-xs text-gray-600 dark:text-gray-300">© 2026 Zuri Visuals</p>
     </div>
   </footer>
-  <script src="js/fade_in.js"></script>
-  <script src="js/menu.js"></script>
 </body>
 
 </html>
