@@ -1,0 +1,22 @@
+{
+  // Zuri Visuals on Cloudflare Workers (MDub IT account). The Vite build in ./dist is served
+  // as static assets; worker/index.js reproduces the old Apache clean URLs and the canonical
+  // host redirects. Deploy: npm run build, then npx wrangler deploy.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zuri-visuals",
+  "account_id": "23a30df122b2611415f35fda70ad1b8b",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // The Worker maps clean URLs itself, so Cloudflare must not add or strip slashes.
+    "html_handling": "none",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "zuri-visuals.com", "custom_domain": true },
+    { "pattern": "www.zuri-visuals.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
